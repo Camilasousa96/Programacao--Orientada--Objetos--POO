@@ -2,25 +2,27 @@
 classe Moto que herde de Veiculo e adicione um atributo cilindradas. 
 Adicione um método exibirDetalhes que exiba as informações da moto.*/
 
+// Classe Veiculo com atributos marca e modelo
 class Veiculo {
-    constructor(marca, modelo){
-        this.marca = marca;
-        this.modelo = modelo;
+    constructor(marca, modelo) {
+      this.marca = marca;
+      this.modelo = modelo;
     }
-    info(){
-        return `Veiculo: ${marca}, ${modelo}`;
+  }
+  
+  // Classe Moto que herda de Veiculo e possui um atributo adicional: cilindradas
+  class Moto extends Veiculo {
+    constructor(marca, modelo, cilindradas) {
+      super(marca, modelo); // Chama o construtor da classe pai (Veiculo)
+      this.cilindradas = cilindradas;
     }
-    class Moto extends Veiculo{
-        constructor(marca, modelo, cilindradas){
-            super(marca, modelo);
-            this.cilindradas = cilindradas;
-        }
-        info(){
-            return`${super.info()} | Cilindradas: ${this.cilindradas}`
-        }
+  
+    // Método para exibir os detalhes da moto
+    exibirDetalhes() {
+      console.log(`Marca: ${this.marca}, Modelo: ${this.modelo}, Cilindradas: ${this.cilindradas}`);
     }
-    exibirDetalhes(){
-        return`Moto: ${}`
-         
-    }
-}
+  }
+  
+  // Exemplo de uso
+  const minhaMoto = new Moto('Honda', 'CB500', 500);
+  minhaMoto.exibirDetalhes(); // Saída: Marca: Honda, Modelo: CB500, Cilindradas: 500
